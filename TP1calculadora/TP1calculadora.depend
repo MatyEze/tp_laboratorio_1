@@ -6,3 +6,15 @@
 
 1586485498 c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\restartcalculadora\tp1calculadora\getdatos.h
 
+1586487149 source:c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\tp1calculadora\getdatos.c
+	<stdio.h>
+	<stdlib.h>
+	"getdatos.h"
+
+1586487149 c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\tp1calculadora\getdatos.h
+
+1586487149 source:c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\tp1calculadora\main.c
+	<stdio.h>
+	<stdlib.h>
+	"getdatos.h"
+
