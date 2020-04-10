@@ -27,4 +27,14 @@ float getFloatMin(char[], float, char[]);
  *
  */
 float getFloatMax(char[], float, char[]);
+
+/** \brief getFloatMinMax(char[], float, float, char[]); toma un flotante y lo valida dentro del rango ingresado
+ *
+ * \param char[] = mensaje de pedido
+ * \param float = el minimo para validar
+ * \param float = el maximo para validar
+ * \param char[] = mensaje de error
+ * \return float
+ *
+ */
 float getFloatMinMax(char[], float, float, char[]);
