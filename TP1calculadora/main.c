@@ -8,7 +8,13 @@ int main()
  int opcion;
  float numeroA;
  float numeroB;
+ float resSum;
+ float resRst;
  float resDiv;
+ float resMult;
+ float resFA;
+ float resFB;
+
 
     do
     {
@@ -29,18 +35,13 @@ int main()
                 numeroB=getFloat("\nIngrese el numero B: ");
             break;
             case 3:
+                resSum = sumar(numeroA, numeroB);
+                resRst = restar(numeroA, numeroB);
                 resDiv = dividir(numeroA, numeroB);
+                resMult = multiplicar(numeroA, numeroB);
             break;
             case 4:
-                if(numeroB == 0)
-                {
-                    printf("No se puede dividir por 0.\n");
-                }
-                else
-                {
-                    printf("Resultado es: %f\n", resDiv);
-                }
-
+                resultadoDivicion("El resultado de %f / %f es = %f\n", numeroA, numeroB, resDiv, "No se puede dividir por 0.\n");
                 system("pause");
             break;
         }

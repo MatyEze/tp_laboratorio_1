@@ -43,3 +43,18 @@ float multiplicar(float, float);
  *
  */
 float Factorial(float);
+
+/** \brief resultadoDivicion (char[], float, float, float, char[]);
+*          muestra mediante un printf el resultado se mostrara con un mensaje que debe incluir tres %f el primero para
+ *         el dividendo, el segundo para el divisor y el tercero para el resultado.
+ *         Si el divisor es 0 se mostrara el mensaje de error.
+ *
+ * \param = mensaje de resultado ej: (el resultado de %f / %f es = %f)
+ * \param = el dividendo
+ * \param = el divisor
+ * \param = el resultado
+ * \param = mensaje de error
+ * \return
+ *
+ */
+void resultadoDivicion (char[], float, float, float, char[]);

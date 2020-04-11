@@ -44,3 +44,16 @@ float multiplicar(float numA, float numB)
 
     return valor;
 }
+
+void resultadoDivicion (char mensaje[], float dividendo, float divisor, float resultado, char error[])
+{
+
+    if(divisor == 0)
+    {
+        printf(error);
+    }
+    else
+    {
+        printf(mensaje, dividendo, divisor, resultado);
+    }
+}
