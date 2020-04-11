@@ -6,8 +6,8 @@
 int main()
 {
  int opcion;
- float numeroA;
- float numeroB;
+ float numeroA = 0;
+ float numeroB = 0;
  float resSum;
  float resRst;
  float resDiv;
@@ -39,9 +39,16 @@ int main()
                 resRst = restar(numeroA, numeroB);
                 resDiv = dividir(numeroA, numeroB);
                 resMult = multiplicar(numeroA, numeroB);
+                resFA = factorial(numeroA);
+                resFB = factorial(numeroB);
             break;
             case 4:
-                resultadoDivicion("El resultado de %f / %f es = %f\n", numeroA, numeroB, resDiv, "No se puede dividir por 0.\n");
+                printf("El resultado de %f + %f es: %f\n", numeroA, numeroB, resSum);
+                printf("El resultado de %f - %f es: %f\n", numeroA, numeroB, resRst);
+                resultadoDivicion("El resultado de %f / %f es: %f\n", numeroA, numeroB, resDiv, "No se puede dividir por 0.\n");
+                printf("El resultado de %f * %f es: %f\n", numeroA, numeroB, resMult);
+                printf("El factorial de %f es: %E\n", numeroA, resFA);
+                printf("El factorial de %f es: %E\n", numeroB, resFB);
                 system("pause");
             break;
         }

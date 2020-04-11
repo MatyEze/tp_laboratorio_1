@@ -36,13 +36,13 @@ float dividir(float, float);
  */
 float multiplicar(float, float);
 
-/** \brief Factorial(float); saca el fatorial de un numero
+/** \brief factorial(float); saca el fatorial de un numero
  *
  * \param float = numero a factoriar
  * \return float
  *
  */
-float Factorial(float);
+float factorial(float);
 
 /** \brief resultadoDivicion (char[], float, float, float, char[]);
 *          muestra mediante un printf el resultado se mostrara con un mensaje que debe incluir tres %f el primero para

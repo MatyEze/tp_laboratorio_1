@@ -45,6 +45,19 @@ float multiplicar(float numA, float numB)
     return valor;
 }
 
+float factorial(float num)
+{
+    float valor = 1;
+    int i;
+
+    for (i = 1; i <= num; i++)
+    {
+        valor = valor * i;
+    }
+
+    return valor;
+}
+
 void resultadoDivicion (char mensaje[], float dividendo, float divisor, float resultado, char error[])
 {
 
