@@ -43,12 +43,15 @@ int main()
                 resFB = factorial(numeroB);
             break;
             case 4:
+                printf("\n");
+                printf("---------RESULTADOS-------------------------------------------------\n");
                 printf("El resultado de %f + %f es: %f\n", numeroA, numeroB, resSum);
                 printf("El resultado de %f - %f es: %f\n", numeroA, numeroB, resRst);
                 resultadoDivicion("El resultado de %f / %f es: %f\n", numeroA, numeroB, resDiv, "No se puede dividir por 0.\n");
                 printf("El resultado de %f * %f es: %f\n", numeroA, numeroB, resMult);
                 printf("El factorial de %f es: %E\n", numeroA, resFA);
                 printf("El factorial de %f es: %E\n", numeroB, resFB);
+                printf("--------------------------------------------------------------------\n");
                 system("pause");
             break;
         }
