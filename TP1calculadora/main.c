@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "getdatos.h"
+#include "operaciones.h"
 
 int main()
 {
  int opcion;
  float numeroA;
  float numeroB;
+ float resDiv;
 
     do
     {
@@ -27,10 +29,19 @@ int main()
                 numeroB=getFloat("\nIngrese el numero B: ");
             break;
             case 3:
-
+                resDiv = dividir(numeroA, numeroB);
             break;
             case 4:
+                if(numeroB == 0)
+                {
+                    printf("No se puede dividir por 0.\n");
+                }
+                else
+                {
+                    printf("Resultado es: %f\n", resDiv);
+                }
 
+                system("pause");
             break;
         }
      //system("pause");
