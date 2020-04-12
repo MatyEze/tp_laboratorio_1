@@ -13,15 +13,15 @@
 
 1586487149 c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\tp1calculadora\getdatos.h
 
-1586593964 source:c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\tp1calculadora\main.c
+1586666185 source:c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\tp1calculadora\main.c
 	<stdio.h>
 	<stdlib.h>
 	"getdatos.h"
 	"operaciones.h"
 
-1586592263 c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\tp1calculadora\operaciones.h
+1586667194 c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\tp1calculadora\operaciones.h
 
-1586594724 source:c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\tp1calculadora\operaciones.c
+1586666809 source:c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\tp1calculadora\operaciones.c
 	<stdio.h>
 	<stdlib.h>
 	"operaciones.h"

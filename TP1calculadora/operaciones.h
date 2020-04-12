@@ -42,7 +42,7 @@ float multiplicar(float, float);
  * \return float
  *
  */
-float factorial(float);
+double factorial(float);
 
 /** \brief resultadoDivicion (char[], float, float, float, char[]);
 *          muestra mediante un printf el resultado se mostrara con un mensaje que debe incluir tres %f el primero para
@@ -58,3 +58,14 @@ float factorial(float);
  *
  */
 void resultadoDivicion (char[], float, float, float, char[]);
+
+/** \brief mostrarFactorial (float, double);
+ *         Muestra mediante printf con un mensaje predeterminado el resultado de un numero y su factorial
+ *         si el resultado es mayor a 9999999 se mostrara con notacion cientifica.
+ *
+ * \param = numero a factoriar
+ * \param = el resultado del factoreo
+ * \return
+ *
+ */
+void mostrarFactorial (float, double);

@@ -45,9 +45,9 @@ float multiplicar(float numA, float numB)
     return valor;
 }
 
-float factorial(float num)
+double factorial(float num)
 {
-    float valor = 1;
+    double valor = 1;
     int i;
 
     for (i = 1; i <= num; i++)
@@ -68,5 +68,18 @@ void resultadoDivicion (char mensaje[], float dividendo, float divisor, float re
     else
     {
         printf(mensaje, dividendo, divisor, resultado);
+    }
+}
+
+void mostrarFactorial (float num, double factorial)
+{
+
+    if(factorial < 9999999)
+    {
+        printf("El factorial de %f es: %.0f\n", num, factorial);
+    }
+    else
+    {
+        printf("El factorial de %f es: %E\n", num, factorial);
     }
 }

@@ -12,8 +12,8 @@ int main()
  float resRst;
  float resDiv;
  float resMult;
- float resFA;
- float resFB;
+ double resFA;
+ double resFB;
 
 
     do
@@ -49,8 +49,8 @@ int main()
                 printf("El resultado de %f - %f es: %f\n", numeroA, numeroB, resRst);
                 resultadoDivicion("El resultado de %f / %f es: %f\n", numeroA, numeroB, resDiv, "No se puede dividir por 0.\n");
                 printf("El resultado de %f * %f es: %f\n", numeroA, numeroB, resMult);
-                printf("El factorial de %f es: %E\n", numeroA, resFA);
-                printf("El factorial de %f es: %E\n", numeroB, resFB);
+                mostrarFactorial(numeroA, resFA);
+                mostrarFactorial(numeroB, resFB);
                 printf("--------------------------------------------------------------------\n");
                 system("pause");
             break;
