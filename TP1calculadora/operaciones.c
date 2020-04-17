@@ -73,12 +73,17 @@ void resultadoDivicion (char mensaje[], float dividendo, float divisor, float re
 
 void mostrarFactorial (float num, double factorial)
 {
+    if(num < 0)
+    {
+        printf("El numero ingresado (%f) es menor a 0\n",num);
+        return;
+    }
 
     if(factorial < 9999999)
     {
         printf("El factorial de %f es: %.0f\n", num, factorial);
     }
-    else
+    else if(num < 0)
     {
         printf("El factorial de %f es: %E\n", num, factorial);
     }
