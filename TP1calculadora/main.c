@@ -18,8 +18,8 @@ int main()
 
     do
     {
-        printf("\n1. Cambiar numero A (%f)", numeroA);
-        printf("\n2. Cambiar numero B (%f)", numeroB);
+        printf("\n1. Cambiar numero A (%.2f)", numeroA);
+        printf("\n2. Cambiar numero B (%.2f)", numeroB);
         printf("\n3. Calcular operaciones.");
         printf("\n4. Mostrar resultados.");
         printf("\n5. Salir.\n");
@@ -44,14 +44,16 @@ int main()
             break;
             case 4:
                 printf("\n");
-                printf("---------RESULTADOS-------------------------------------------------\n");
-                printf("El resultado de %f + %f es: %f\n", numeroA, numeroB, resSum);
-                printf("El resultado de %f - %f es: %f\n", numeroA, numeroB, resRst);
-                resultadoDivicion("El resultado de %f / %f es: %f\n", numeroA, numeroB, resDiv, "No se puede dividir por 0.\n");
-                printf("El resultado de %f * %f es: %f\n", numeroA, numeroB, resMult);
+                printf("---------RESULTADOS----------------------------------------------------------------\n\n");
+                printf("El resultado de %.2f + %.2f es: %.2f\n", numeroA, numeroB, resSum);
+                printf("El resultado de %.2f - %.2f es: %.2f\n", numeroA, numeroB, resRst);
+                resultadoDivicion("El resultado de %.2f / %.2f es: %.2f\n", numeroA, numeroB, resDiv, "No se puede dividir por 0.\n");
+                printf("El resultado de %.2f * %.2f es: %.2f\n\n", numeroA, numeroB, resMult);
+                printf("---------RESULTADOS DE FACTOREO (NO SE TIENEN EN CUENTA LOS DECIMALES)-------------\n\n");
                 mostrarFactorial(numeroA, resFA);
                 mostrarFactorial(numeroB, resFB);
-                printf("--------------------------------------------------------------------\n");
+                printf("\n");
+                printf("-----------------------------------------------------------------------------------\n\n");
                 system("pause");
             break;
         }

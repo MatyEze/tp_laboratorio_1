@@ -13,7 +13,7 @@
 
 1586487149 c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\tp1calculadora\getdatos.h
 
-1586667711 source:c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\tp1calculadora\main.c
+1587121055 source:c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\tp1calculadora\main.c
 	<stdio.h>
 	<stdlib.h>
 	"getdatos.h"
@@ -21,7 +21,7 @@
 
 1586667194 c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\tp1calculadora\operaciones.h
 
-1586666809 source:c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\tp1calculadora\operaciones.c
+1587121876 source:c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\tp1calculadora\operaciones.c
 	<stdio.h>
 	<stdlib.h>
 	"operaciones.h"
