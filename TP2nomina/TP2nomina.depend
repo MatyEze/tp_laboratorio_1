@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1588813375 source:c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\tp2nomina\main.c
+	"ArrayEmployees.h"
+
+1588812932 source:c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\tp2nomina\arrayemployees.c
+	"ArrayEmployees.h"
+
+1588813613 c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\tp2nomina\arrayemployees.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

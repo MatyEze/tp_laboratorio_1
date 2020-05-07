@@ -1,8 +1,16 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "ArrayEmployees.h"
 
 int main()
 {
-    printf("Hello world!\n");
+    int tieneCarga=0;
+    int ultimaid;
+    Employee employeeList[SIZELIST];
+    initEmployees(employeeList, SIZELIST);
+    ///////////////HARDCODE////////////////////
+    hardCode10Employees(employeeList, SIZELIST);
+    tieneCarga=1;
+    ultimaid=109;
+    ///////////////////////////////////////////
+    printEmployees(employeeList, SIZELIST);
     return 0;
 }
