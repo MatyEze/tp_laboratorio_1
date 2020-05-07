@@ -3,7 +3,7 @@
 void hardCode10Employees(Employee* list, int len)
 {
     int i;
-    Employee auxList[10]={{100, "Lucas", "Fernandez", 850, 2, 0},
+    Employee auxList[10]={{100, "Norberto", "Fernandez", 850, 2, 0},
                          {101, "Maria", "Sturger", 1200, 2, 0},
                          {102, "Nando", "Lourido", 3500, 3, 0},
                          {103, "Elmo", "Noloco", 500, 2, 0},

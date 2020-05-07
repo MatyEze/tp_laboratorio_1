@@ -11,6 +11,7 @@ int main()
     tieneCarga=1;
     ultimaid=109;
     ///////////////////////////////////////////
+    sortEmployees(employeeList, SIZELIST, 0);
     printEmployees(employeeList, SIZELIST);
     return 0;
 }

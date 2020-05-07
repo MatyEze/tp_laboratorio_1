@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "funcionesgnr.h"
 #define SIZELIST 30
+
+
 typedef struct{
 
     int id;
@@ -95,4 +98,10 @@ void swapEmployees(int i, int j, Employee* list, int len);
  */
 int printEmployees(Employee* list, int length);
 
+/** \brief Mustra un emplado solo si isEmpty es 0
+ *
+ * \param employee Employee
+ * \return void
+ *
+ */
 void printOneEmployee(Employee employee);
