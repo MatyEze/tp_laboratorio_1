@@ -5,6 +5,7 @@ int main()
     int tieneCarga=0;
     int ultimaId;
     int menuOpcion;
+    int opcionInforme;
     Employee employeeList[SIZELIST];
     initEmployees(employeeList, SIZELIST);
     ///////////////HARDCODE////////////////////
@@ -13,7 +14,7 @@ int main()
     ultimaId=109;
     ///////////////////////////////////////////
     do{
-        menuOpcion = getIntMmR(3,"1-CARGAR empleado\n2-MODIFICAR empleado\n3-OPCION\n4-MOSTRAR\n5-SALIR\n\nIngrese una opcion: ", "ERROR opcion invalida REINGRESE: ", 5, 1);
+        menuOpcion = getIntMmR(3,"1-CARGAR empleado\n2-MODIFICAR empleado\n3-ELIMINAR empleado\n4-INFORMES\n5-SALIR\n\nIngrese una opcion: ", "ERROR opcion invalida REINGRESE: ", 5, 1);
         switch(menuOpcion)
         {
             case 1:
@@ -34,7 +35,7 @@ int main()
             case 3:
                 if(tieneCarga)
                 {
-
+                    eliminarEmpleado(employeeList, SIZELIST);
                 }
                 else
                 {
@@ -42,9 +43,23 @@ int main()
                 }
             break;
             case 4:
-                printEmployees(employeeList, SIZELIST);
-                pausa();
+                do{
+                    system("cls");
+                    opcionInforme = getIntMmR(3, "1-MOSTRAR listado de empleados ordenado ALFABETICAMENTE Y por SECTOR\n2-INFORMAR total y promedio de los salarios y cuantos empleados superan el salario promedio\n3-ATRAS\nIngrese opcion: ",
+                                              "ERROR opcion invalida REINGRESE: ", 3, 1);
+                    system("cls");
+                    switch(opcionInforme)
+                    {
+                        case 1:
+                            sortEmployees(employeeList, SIZELIST, 1);
+                            printEmployees(employeeList, SIZELIST);
+                            pausa();
+                        break;
+                        case 2:
 
+                        break;
+                    }
+                }while(opcionInforme!=3);
             break;
         }
 

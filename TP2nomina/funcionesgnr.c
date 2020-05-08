@@ -165,7 +165,7 @@ char *strlwr(char *str) //para que funcione en GDB hay que implementarla manualm
 
 void pausa(void)
 {
-    printf("Presiona CUALQUIER tecla para CONTINUAR...\n");
+    printf("\n\n\nPresiona CUALQUIER tecla para CONTINUAR...\n");
     //__fpurge(stdin);
     fflush(stdin);
     getchar();

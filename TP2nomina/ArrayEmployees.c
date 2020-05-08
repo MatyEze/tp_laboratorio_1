@@ -314,3 +314,31 @@ void printOneEmployee(Employee employee)
         printf("%d %15s %8s %10.2f %10d\n", employee.id, employee.lastName, employee.name, employee.salary, employee.sector);
     }
 }
+
+void eliminarEmpleado(Employee* list, int sizeList)
+{
+    int idToIndex;
+    char resp;
+    printEmployees(list, sizeList);
+    idToIndex = findEmployeeById(list, sizeList, getInt("Ingrese la ID del empleado que desea ELIMINAR: "));
+    while(idToIndex == -1)
+    {
+        idToIndex = findEmployeeById(list, sizeList, getInt("ERROR ID no encontrada REINGRESE: "));
+    }
+    printf("Esta SEGURO que quiere ELIMINAR al EMPLEADO:\n");
+    printOneEmployee(list[idToIndex]);
+    printf("Ingrese s/n: ");
+    fflush(stdin);
+    scanf("%c",&resp);
+    if(resp=='s')
+    {
+        list[idToIndex].isEmpty = 1;
+        printf("Se a ELIMINADO al EMPLEADO exitosamente.\n");
+        pausa();
+    }
+    else
+    {
+        printf("Se a CANCELADO la ELIMINACION.\n");
+        pausa();
+    }
+}

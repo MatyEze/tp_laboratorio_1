@@ -20,8 +20,8 @@ int getInt(char pedido[]);
 int getIntMmR(int opcion, char pedido[], char error[], int maximo, int minimo);
 
 ///////////////////////////////////////////////////////////A2.0 GET DATOS (Float)////////////////////////////////////////////////////////////
-float getFloatMmR(int opcion, char pedido[], char error[], float maximo, float minimo);
 float getFloat(char pedido[]);
+float getFloatMmR(int opcion, char pedido[], char error[], float maximo, float minimo);
 
 ///////////////////////////////////////////////////////////A3.0 GET DATOS (char)////////////////////////////////////////////////////////////
 
