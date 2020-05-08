@@ -21,6 +21,7 @@ int getIntMmR(int opcion, char pedido[], char error[], int maximo, int minimo);
 
 ///////////////////////////////////////////////////////////A2.0 GET DATOS (Float)////////////////////////////////////////////////////////////
 float getFloatMmR(int opcion, char pedido[], char error[], float maximo, float minimo);
+float getFloat(char pedido[]);
 
 ///////////////////////////////////////////////////////////A3.0 GET DATOS (char)////////////////////////////////////////////////////////////
 
@@ -38,8 +39,7 @@ float getFloatMmR(int opcion, char pedido[], char error[], float maximo, float m
  */
 void getNombre(int formato, char pedido[], char nombre[], int sizeNombre);
 ///////////////////////////////////////////////////////////B1.0 MENUS///////////////////////////////////////////////////////////////////////
-int menu3opciones(char opcion1[], char opcion2[], char opcion3[]);
-int menu5opciones(char opcion1[], char opcion2[], char opcion3[], char opcion4[], char opcion5[]);
 
 ///////////////////////////////////////////////////////////Z1.0 OTRAS///////////////////////////////////////////////////////////////////////
 char *strlwr(char *str); //para que funcione en GDB hay que implementarla manualmente
+void pausa(void);

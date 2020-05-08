@@ -13,18 +13,42 @@ int main()
     ultimaId=109;
     ///////////////////////////////////////////
     do{
-        menuOpcion = menu5opciones("1-OPCION", "2-OPCION", "3-OPCION", "4-OPCION", "5-SALIR");
+        menuOpcion = getIntMmR(3,"1-CARGAR empleado\n2-MODIFICAR empleado\n3-OPCION\n4-MOSTRAR\n5-SALIR\n\nIngrese una opcion: ", "ERROR opcion invalida REINGRESE: ", 5, 1);
         switch(menuOpcion)
         {
             case 1:
+                ultimaId=cargarEmpleado(employeeList, SIZELIST, ultimaId);
+                tieneCarga=1;
+                pausa();
             break;
             case 2:
+                if(tieneCarga)
+                {
+                    modificarEmpleado(employeeList, SIZELIST);
+                }
+                else
+                {
+                    printf("No se han cargado empleados.\n");
+                }
             break;
             case 3:
+                if(tieneCarga)
+                {
+
+                }
+                else
+                {
+                    printf("No se han cargado empleados.\n");
+                }
             break;
             case 4:
+                printEmployees(employeeList, SIZELIST);
+                pausa();
+
             break;
         }
+
+        system("cls");
     }while(menuOpcion != 5);
 
     return 0;

@@ -12,7 +12,7 @@ void hardCode10Employees(Employee* list, int len)
                          {106, "Lucas", "Fernandez", 550, 1, 0},
                          {107, "Mariano", "Camacho", 1390, 2, 0},
                          {108, "Aldo", "Defurze", 600, 1, 0},
-                         {109, "Sol", "Ydrhefa", 580, 1, 0}};
+                         {109, "Sol", "Ydrhefa", 580.50, 1, 0}};
 
     for(i=0; i<10; i++)
     {
@@ -34,11 +34,118 @@ int initEmployees(Employee* list, int len)
     return retorno;
 }
 
-int addEmployee(Employee* list, int len, int id, char name[],char lastName[],float salary,int sector)
+int cargarEmpleado(Employee* list,int sizeList, int lastID)
+{
+    int nuevaID;
+    char name[SIZELIST];
+    char lastName[SIZENAME];
+    if (findEmptyEmployee(list, sizeList) != -1)
+    {
+        getNombre(1, "Ingrese Nombre: ", name, SIZENAME);
+        getNombre(2, "Ingrese Apellido: ", lastName, SIZENAME);
+        nuevaID=lastID+1;
+        addEmployee(list, sizeList, nuevaID, name, lastName,
+                    getFloatMmR(2, "Ingrese Salario: ", "ERROR salario invalido REINGRESE: ", 0, 1),
+                    getIntMmR(2, "Ingrese numero de sector: ", "ERROR sector invalido REINGRESE: ", 0, 1));
+
+        printf("Se a cargado CORRECTAMENTE.\n\n");
+    }
+    else
+    {
+        printf("No hay espacio disponible.\n\n");
+        nuevaID=lastID;
+    }
+
+
+    return nuevaID;
+}
+
+void modificarEmpleado(Employee* list, int sizeList)
+{
+    Employee auxEmployee;
+    int idToIndex;
+    int opcion;
+    char resp;
+    int guardado=1;
+
+    printEmployees(list, sizeList);
+    idToIndex = findEmployeeById(list, sizeList, getInt("Ingrese la ID del empleado que desea MODIFICAR: "));
+    while(idToIndex == -1)
+    {
+        idToIndex = findEmployeeById(list, sizeList, getInt("ERROR ID no encontrada REINGRESE: "));
+    }
+
+    auxEmployee=list[idToIndex];
+
+    do{
+        system("cls");
+        printf("MODIFICANDO al empleado.\n");
+        printOneEmployee(auxEmployee);
+        opcion=getIntMmR(3, "1-modificar NOMBRE\n2-modificar APELLIDO\n3-modificar SALARIO\n4-modificar SECTOR\n5-GUARDAR.\n6-ATRAS\n\nIngrese una opcion: ", "ERROR opcion no valida REINGRESE: ", 6, 1);
+        switch(opcion)
+        {
+        case 1:
+            getNombre(1, "Ingrese NUEVO nombre: ", auxEmployee.name, SIZENAME);
+            guardado=0;
+        break;
+        case 2:
+            getNombre(2, "Ingrese NUEVO apellido: ", auxEmployee.lastName, SIZENAME);
+            guardado=0;
+        break;
+        case 3:
+            auxEmployee.salary = getFloatMmR(2, "Ingrese NUEVO Salario: ", "ERROR salario invalido REINGRESE: ", 0, 1);
+            guardado=0;
+        break;
+        case 4:
+            auxEmployee.sector = getIntMmR(2, "Ingrese NUEVO numero de sector: ", "ERROR sector invalido REINGRESE: ", 0, 1);
+            guardado=0;
+        break;
+        case 5:
+            printf("ORIGINAL\n");
+            printOneEmployee(list[idToIndex]);
+            printf("NUEVO\n");
+            printOneEmployee(auxEmployee);
+            printf("Esta SEGURO que quiere GUARDAR los cambios ingrese s/n: ");
+            fflush(stdin);
+            scanf("%c",&resp);
+            if(resp == 's')
+            {
+                list[idToIndex] = auxEmployee;
+                guardado=1;
+                printf("Se a GUARDADO los cambios con EXITO.\n");
+                pausa();
+            }
+            else
+            {
+                printf("Cambios CANCELADOS.\n");
+                pausa();
+            }
+        break;
+        case 6:
+            if(!guardado)
+            {
+                printf("Esta SEGURO que quiere SALIR sin GUARDAR los CAMBIOS ingrese s/n: ");
+                fflush(stdin);
+                scanf("%c",&resp);
+                if(resp == 's')
+                {
+                    opcion = 6;
+                }
+                else
+                {
+                    opcion =-1;
+                }
+            }
+        break;
+        }
+    }while(opcion!=6);
+
+}
+
+int addEmployee(Employee* list, int len, int id, char name[], char lastName[], float salary, int sector)
 {
     int libre = findEmptyEmployee(list, len);
     int retorno=-1;
-
     if(libre!=-1)
     {
     list[libre].id = id;

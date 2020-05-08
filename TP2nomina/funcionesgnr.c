@@ -8,29 +8,41 @@ int getInt(char pedido[])
     return valor;
 }
 
+float getFloat(char pedido[])
+{
+    float valor;
+    printf(pedido);
+    scanf("%f",&valor);
+    return valor;
+}
+
 int getIntMmR(int opcion, char pedido[], char error[], int maximo, int minimo)
 {
     int valor;
+    int reintentos=5;
 
     valor = getInt(pedido);
     switch(opcion)
     {
         case 1:
-            while(valor>maximo)
+            while(valor>maximo && reintentos !=0)
             {
                 valor=getInt(error);
+                reintentos--;
             }
         break;
         case 2:
-            while(valor<minimo)
+            while(valor<minimo && reintentos !=0)
             {
                 valor=getInt(error);
+                reintentos--;
             }
         break;
         case 3:
-            while(valor < minimo || valor > maximo)
+            while((valor < minimo || valor > maximo) && reintentos !=0)
             {
                 valor=getInt(error);
+                reintentos--;
             }
         break;
         default:
@@ -44,26 +56,30 @@ int getIntMmR(int opcion, char pedido[], char error[], int maximo, int minimo)
 float getFloatMmR(int opcion, char pedido[], char error[], float maximo, float minimo)
 {
     float valor;
+    int reintentos=5;
 
-    valor = getInt(pedido);
+    valor = getFloat(pedido);
     switch(opcion)
     {
         case 1:
-            while(valor>maximo)
+            while(valor>maximo && reintentos !=0)
             {
-                valor=getInt(error);
+                valor=getFloat(error);
+                reintentos--;
             }
         break;
         case 2:
-            while(valor<minimo)
+            while(valor<minimo && reintentos !=0)
             {
-                valor=getInt(error);
+                valor=getFloat(error);
+                reintentos--;
             }
         break;
         case 3:
-            while(valor < minimo || valor > maximo)
+            while((valor < minimo || valor > maximo) && reintentos !=0)
             {
-                valor=getInt(error);
+                valor=getFloat(error);
+                reintentos--;
             }
         break;
         default:
@@ -94,6 +110,12 @@ void getNombre(int formato, char pedido[], char nombre[], int sizeNombre)
         fgets(nombre, sizeNombre, stdin);
         largo=strlen(nombre);
         nombre[largo-1]='\0';
+    }
+    for(i=0; i<largo; i++)
+    {
+        letra=nombre[i];
+        letra=tolower(letra);
+        nombre[i]=letra;
     }
 
     switch(formato)
@@ -129,46 +151,6 @@ void getNombre(int formato, char pedido[], char nombre[], int sizeNombre)
 
 ///////////////////////////////////////////////////////////B1.0 MENUS///////////////////////////////////////////////////////////////////////
 
-int menu3opciones(char opcion1[], char opcion2[], char opcion3[])
-{
-    int opcionRetorno;
-
-    printf(opcion1);
-    printf("\n");
-    printf(opcion2);
-    printf("\n");
-    printf(opcion3);
-    printf("\n");
-    opcionRetorno = getIntMmR(3, "Ingrese opcion: ", "ERROR opcion no valida REINGRESE: ", 3, 1);
-
-    return opcionRetorno;
-}
-
-int menu5opciones(char opcion1[], char opcion2[], char opcion3[], char opcion4[], char opcion5[])
-{
-    int opcionRetorno;
-
-    printf(opcion1);
-    printf("\n");
-    printf(opcion2);
-    printf("\n");
-    printf(opcion3);
-    printf("\n");
-    printf(opcion4);
-    printf("\n");
-    printf(opcion5);
-    printf("\n");
-    opcionRetorno = getIntMmR(3, "Ingrese opcion: ", "ERROR opcion no valida REINGRESE: ", 5, 1);
-
-    return opcionRetorno;
-}
-
-
-
-
-
-
-
 ///////////////////////////////////////////////////////////Z1.0 OTRAS///////////////////////////////////////////////////////////////////////
 
 char *strlwr(char *str) //para que funcione en GDB hay que implementarla manualmente
@@ -179,4 +161,12 @@ char *strlwr(char *str) //para que funcione en GDB hay que implementarla manualm
       p++;
   }
   return str;
+}
+
+void pausa(void)
+{
+    printf("Presiona CUALQUIER tecla para CONTINUAR...\n");
+    //__fpurge(stdin);
+    fflush(stdin);
+    getchar();
 }

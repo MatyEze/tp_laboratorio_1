@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include "funcionesgnr.h"
-#define SIZELIST 30
+#define SIZELIST 11
+#define SIZENAME 51
 
 
 typedef struct{
@@ -85,8 +86,34 @@ int removeEmployee(Employee* list, int len, int id);
  */
 int sortEmployees(Employee* list, int len, int order);
 
+/** \brief ordena la lista de empleados de la A a la Z y por sector de menor a mayor
+ *
+ * \param list Employee*
+ * \param len int
+ * \return int
+ *
+ */
 int sortEmployeesUp(Employee* list, int len);
+
+/** \brief ordena la lista de empleados de la Z a la A y por sector de mayor a menor
+ *
+ * \param list Employee*
+ * \param len int
+ * \return int
+ *
+ */
 int sortEmployeesDown(Employee* list, int len);
+
+
+/** \brief cambia los datos de una estructura Employee (i) por otra (j) dentro de un array mediante sus indices
+ *
+ * \param i int indice
+ * \param j int indice
+ * \param list Employee*
+ * \param len int
+ * \return void
+ *
+ */
 void swapEmployees(int i, int j, Employee* list, int len);
 
 /** \brief Imprime el array de empleados de forma encolumnada.
@@ -105,3 +132,24 @@ int printEmployees(Employee* list, int length);
  *
  */
 void printOneEmployee(Employee employee);
+
+/** \brief carga un empleado a un espacio vacio si no hay espacio lo notifica y cancela la opercion
+ *         tambien genera una nueva ID tomando la ultima id usada y sumandole 1. la funcion retorna
+ *         la ID generada en forma de int.
+ *
+ * \param list Employee*
+ * \param sizeList int
+ * \param lastID int ultima ID generada
+ * \return int devuelve la nueva "ultima ID generada"
+ *
+ */
+int cargarEmpleado(Employee* list,int sizeList, int lastID);
+
+/** \brief encuentra por ID y abre un menu para modificar a un empleado
+ *
+ * \param list Employee*
+ * \param sizeList int
+ * \return void
+ *
+ */
+void modificarEmpleado(Employee* list, int sizeList);
