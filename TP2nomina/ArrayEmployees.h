@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "funcionesgnr.h"
-#define SIZELIST 10
+#define SIZELIST 1000
 #define SIZENAME 51
 
 
@@ -155,3 +155,11 @@ int cargarEmpleado(Employee* list,int sizeList, int lastID);
 void modificarEmpleado(Employee* list, int sizeList);
 
 void eliminarEmpleado(Employee* list, int sizeList);
+
+int cantidadDeEmpleados(Employee* list, int sizeList);
+
+float totalSalario(Employee* list, int size);
+
+int cantidadDeEmpladosSobrePromedio(Employee* list, int size);
+
+int tieneCarga(Employee* list, int size);

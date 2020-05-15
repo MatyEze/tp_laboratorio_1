@@ -3,16 +3,16 @@
 void hardCode10Employees(Employee* list, int len)
 {
     int i;
-    Employee auxList[10]={{100, "Norberto", "Fernandez", 850, 2, 0},
-                         {101, "Maria", "Sturger", 1200, 2, 0},
-                         {102, "Nando", "Lourido", 3500, 3, 0},
-                         {103, "Elmo", "Noloco", 500, 2, 0},
-                         {104, "Luz", "Apagada", 550, 1, 0},
-                         {105, "Juan", "Helsing", 500, 2, 0},
-                         {106, "Lucas", "Fernandez", 550, 1, 0},
-                         {107, "Mariano", "Camacho", 1390, 2, 0},
-                         {108, "Aldo", "Defurze", 600, 1, 0},
-                         {109, "Sol", "Ydrhefa", 580.50, 1, 0}};
+    Employee auxList[10]={{100, "Norberto", "FERNANDEZ", 850, 2, 0},
+                         {101, "Maria", "STURGER", 1200, 2, 0},
+                         {102, "Nando", "LOURIDO", 3500, 3, 0},
+                         {103, "Elmo", "NOLOCO", 500, 2, 0},
+                         {104, "Luz", "APAGADA", 550, 1, 0},
+                         {105, "Juan", "HELSING", 500, 2, 0},
+                         {106, "Lucas", "FERNANDEZ", 550, 1, 0},
+                         {107, "Mariano", "CAMACHO", 1390, 2, 0},
+                         {108, "Aldo", "DEFURZE", 600, 1, 0},
+                         {109, "Sol", "YDRHEFA", 580.50, 1, 0}};
 
     for(i=0; i<10; i++)
     {
@@ -273,13 +273,13 @@ int sortEmployeesDown(Employee* list, int len)
     {
         for(j=i+1; j<len; j++)
         {
-            if((strcmp(list[i].lastName, list[j].lastName)) < 0)
+            if((strcmp(list[i].lastName, list[j].lastName)) < 0 || ( (strcmp(list[i].lastName, list[j].lastName)) == 0 && list[i].sector < list[j].sector ) )
             {
                 auxEmployee=list[i];
                 list[i]=list[j];
                 list[j]=auxEmployee;
                 retorno=0;
-            }
+            }/*
             else if((strcmp(list[i].lastName, list[j].lastName)) == 0)
             {
                 if(list[i].sector < list[j].sector)
@@ -289,7 +289,7 @@ int sortEmployeesDown(Employee* list, int len)
                     list[j]=auxEmployee;
                     retorno=0;
                 }
-            }
+            }*/
         }
     }
 
@@ -341,4 +341,63 @@ void eliminarEmpleado(Employee* list, int sizeList)
         printf("Se a CANCELADO la ELIMINACION.\n");
         pausa();
     }
+}
+
+int cantidadDeEmpleados(Employee* list, int sizeList)
+{
+    int i;
+    int cant=0;
+    for(i=0; i<sizeList; i++)
+    {
+        if(!list[i].isEmpty)
+        {
+            cant++;
+        }
+    }
+    return cant;
+}
+
+float totalSalario(Employee* list, int size)
+{
+    int i;
+    float total=0;
+
+    for(i=0; i<size; i++)
+    {
+        if(!list[i].isEmpty)
+        {
+            total += list[i].salary;
+        }
+    }
+    return total;
+}
+
+int cantidadDeEmpladosSobrePromedio(Employee* list, int size)
+{
+    int i;
+    float salarioTotal = totalSalario(list, size);
+    int cantEpleados = cantidadDeEmpleados(list, size);
+    float promedio = salarioTotal/cantEpleados;
+    int cantSobrePromedio=0;
+
+    for(i=0; i<size; i++)
+    {
+        if(list[i].salary > promedio && !list[i].isEmpty)
+        {
+            cantSobrePromedio++;
+        }
+    }
+
+    return cantSobrePromedio;
+}
+
+int tieneCarga(Employee* list, int size)
+{
+    int valor=0;
+
+    if(cantidadDeEmpleados(list, size) > 0)
+    {
+        valor=1;
+    }
+    return valor;
 }

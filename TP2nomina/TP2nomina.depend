@@ -1,11 +1,11 @@
 # depslib dependency file v1.0
-1588893947 source:c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\tp2nomina\main.c
+1589577456 source:c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\tp2nomina\main.c
 	"ArrayEmployees.h"
 
-1588899348 source:c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\tp2nomina\arrayemployees.c
+1589577097 source:c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\tp2nomina\arrayemployees.c
 	"ArrayEmployees.h"
 
-1588900594 c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\tp2nomina\arrayemployees.h
+1589577036 c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\tp2nomina\arrayemployees.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -17,6 +17,6 @@
 	<string.h>
 	<ctype.h>
 
-1588896628 source:c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\tp2nomina\funcionesgnr.c
+1588900750 source:c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\tp2nomina\funcionesgnr.c
 	"funcionesgnr.h"
 
