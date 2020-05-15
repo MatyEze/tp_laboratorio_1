@@ -154,12 +154,47 @@ int cargarEmpleado(Employee* list,int sizeList, int lastID);
  */
 void modificarEmpleado(Employee* list, int sizeList);
 
+/** \brief muestra lista de empleados y pide una ID para empezar el proceso de baja del empleado
+ *
+ * \param list Employee*
+ * \param sizeList int
+ * \return void
+ *
+ */
 void eliminarEmpleado(Employee* list, int sizeList);
 
+/** \brief devuelve en forma de int la cantidad de emlpeados cargados.
+ *
+ * \param list Employee*
+ * \param sizeList int
+ * \return int
+ *
+ */
 int cantidadDeEmpleados(Employee* list, int sizeList);
 
+/** \brief Suma todo los salarios de los empleados cargados.
+ *
+ * \param list Employee*
+ * \param size int
+ * \return float
+ *
+ */
 float totalSalario(Employee* list, int size);
 
+/** \brief Devuelve en forma de int la cantidad de empleados que superan el salario promedio.
+ *
+ * \param list Employee*
+ * \param size int
+ * \return int
+ *
+ */
 int cantidadDeEmpladosSobrePromedio(Employee* list, int size);
 
+/** \brief verifica si hay empleados cargados.
+ *
+ * \param list Employee*
+ * \param size int
+ * \return int [0] no hay carga, [1] si hay carga.
+ *
+ */
 int tieneCarga(Employee* list, int size);

@@ -2,7 +2,6 @@
 
 int main()
 {
-    //int tieneCarga=0;
     int ultimaId=0;
     int menuOpcion;
     int opcionInforme;
@@ -10,7 +9,6 @@ int main()
     initEmployees(employeeList, SIZELIST);
     ///////////////HARDCODE////////////////////
     /*hardCode10Employees(employeeList, SIZELIST);
-    tieneCarga=1;
     ultimaId=109;*/
     ///////////////////////////////////////////
     do{
@@ -19,7 +17,6 @@ int main()
         {
             case 1:
                 ultimaId=cargarEmpleado(employeeList, SIZELIST, ultimaId);
-                //tieneCarga=1;
                 pausa();
             break;
             case 2:
