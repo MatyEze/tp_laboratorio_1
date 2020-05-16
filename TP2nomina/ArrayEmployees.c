@@ -239,13 +239,13 @@ int sortEmployeesUp(Employee* list, int len)
     {
         for(j=i+1; j<len; j++)
         {
-            if((strcmp(list[i].lastName, list[j].lastName)) > 0)
+            if((strcmp(list[i].lastName, list[j].lastName)) > 0 || ( (strcmp(list[i].lastName, list[j].lastName)) == 0 && list[i].sector > list[j].sector ))
             {
                 auxEmployee=list[i];
                 list[i]=list[j];
                 list[j]=auxEmployee;
                 retorno=0;
-            }
+            }/*
             else if((strcmp(list[i].lastName, list[j].lastName)) == 0)
             {
                 if(list[i].sector > list[j].sector)
@@ -255,7 +255,7 @@ int sortEmployeesUp(Employee* list, int len)
                     list[j]=auxEmployee;
                     retorno=0;
                 }
-            }
+            }*/
         }
     }
 
