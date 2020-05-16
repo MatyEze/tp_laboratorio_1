@@ -245,17 +245,7 @@ int sortEmployeesUp(Employee* list, int len)
                 list[i]=list[j];
                 list[j]=auxEmployee;
                 retorno=0;
-            }/*
-            else if((strcmp(list[i].lastName, list[j].lastName)) == 0)
-            {
-                if(list[i].sector > list[j].sector)
-                {
-                    auxEmployee=list[i];
-                    list[i]=list[j];
-                    list[j]=auxEmployee;
-                    retorno=0;
-                }
-            }*/
+            }
         }
     }
 
@@ -279,17 +269,7 @@ int sortEmployeesDown(Employee* list, int len)
                 list[i]=list[j];
                 list[j]=auxEmployee;
                 retorno=0;
-            }/*
-            else if((strcmp(list[i].lastName, list[j].lastName)) == 0)
-            {
-                if(list[i].sector < list[j].sector)
-                {
-                    auxEmployee=list[i];
-                    list[i]=list[j];
-                    list[j]=auxEmployee;
-                    retorno=0;
-                }
-            }*/
+            }
         }
     }
 
