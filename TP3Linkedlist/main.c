@@ -7,12 +7,12 @@
 
 /****************************************************
     Menu:
-     1. Cargar los datos de los empleados desde el archivo data.csv (modo texto).
+     1. Cargar los datos de los empleados desde el archivo data.csv (modo texto). //LISTO
      2. Cargar los datos de los empleados desde el archivo data.csv (modo binario).
      3. Alta de empleado
      4. Modificar datos de empleado
      5. Baja de empleado
-     6. Listar empleados
+     6. Listar empleados //LISTO
      7. Ordenar empleados
      8. Guardar los datos de los empleados en el archivo data.csv (modo texto).
      9. Guardar los datos de los empleados en el archivo data.csv (modo binario).
@@ -34,7 +34,21 @@ int main()
         switch(opcion)
         {
             case 1:
-                controller_loadFromBinary("data.csv", listaEmpleados);
+                if(ll_isEmpty(listaEmpleados))
+                {
+                    controller_loadFromText("data.csv", listaEmpleados);
+                    printf("CARGADO CON EXITO...\n");
+                }
+                else if(getSON("Se perderan los datos no guardados esta seguro que quiere cargar (s/n): ", "ERROR dato no valido reingrese (s/n): "))
+                {
+                    controller_loadFromText("data.csv", listaEmpleados);
+                    printf("CARGADO CON EXITO...\n");
+                }
+                else
+                {
+                    printf("CARGADO CANCELADO...\n");
+                }
+                pausa();
             break;
             case 2:
             break;
@@ -45,15 +59,26 @@ int main()
             case 5:
             break;
             case 6:
+                if(!ll_isEmpty(listaEmpleados))
+                {
+                    controller_ListEmployee(listaEmpleados);
+                }
+                else
+                {
+                    printf("NO HAY DATOS CARGADOS ELIJA LAS OPCIONES 1 O 2 PARA CARGAR...\n");
+                }
 
+                pausa();
             break;
             case 7:
             break;
             case 8:
+
             break;
             case 9:
             break;
         }
+        system("cls");
     }while(opcion!=10);
 
     return 0;

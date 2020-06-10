@@ -185,7 +185,7 @@ int getSON(char pedido[], char error[])
     fflush(stdin);
     scanf("%c",&resp);
     resp = tolower(resp);
-    while(resp != 's' || resp != 'n')
+    while(resp != 's' && resp != 'n')
     {
         printf(error);
         //_fpurge(stdin);

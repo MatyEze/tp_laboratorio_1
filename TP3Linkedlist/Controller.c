@@ -50,12 +50,20 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
 {
     int len = ll_len(pArrayListEmployee);
     int i;
+    int hsTrabjadas;
+    int sueldo;
+    char nombre[EMPLOYEENAME_SIZE];
+    int id;
     Employee* aux;
-
     for(i=0; i<len; i++)
     {
         aux = (Employee*) ll_get(pArrayListEmployee, i);
+        employee_getHorasTrabajadas(aux, &hsTrabjadas);
+        employee_getSueldo(aux, &sueldo);
+        employee_getNombre(aux, nombre);
+        employee_getId(aux, &id);
 
+        printf("%d--%s--%d--%d\n", id, nombre, hsTrabjadas, sueldo);
     }
 
     return 1;
