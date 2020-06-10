@@ -89,6 +89,27 @@ float getFloatMmR(int opcion, char pedido[], char error[], float maximo, float m
 
     return valor;
 }
+
+
+///////////////////////////////////////////////////////////A3.0 GET DATOS (char)////////////////////////////////////////////////////////////
+char getSON(char pedido[], char error[])
+{
+    char resp;
+    printf(pedido);
+    //_fpurge(stdin);
+    fflush(stdin);
+    scanf("%c",&resp);
+    resp = tolower(resp);
+    while(resp != 's' || resp != 'n')
+    {
+        printf(error);
+        //_fpurge(stdin);
+        fflush(stdin);
+        scanf("%c",&resp);
+        resp = tolower(resp);
+    }
+    return resp;
+}
 ///////////////////////////////////////////////////////////A3.1 GET DATOS -nombre- (char)///////////////////////////////////////////////////
 
 void getNombre(int formato, char pedido[], char nombre[], int sizeNombre)
