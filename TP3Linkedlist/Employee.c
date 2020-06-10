@@ -1,5 +1,7 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "Employee.h"
+#include "LinkedList.h"
 #include <string.h>
 
 
@@ -138,6 +140,3 @@ int employee_CompareById(Employee* e1, Employee* e2)
 
     return strcmp(e1->nombre, e2->nombre);
 }
-
-
-

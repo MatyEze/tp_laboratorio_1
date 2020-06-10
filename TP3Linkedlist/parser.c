@@ -24,7 +24,7 @@ int parser_EmployeeFromText(FILE* pFile, LinkedList* pArrayListEmployee)
 
         retorno=1;
     }
-    return 1;
+    return retorno;
 
 }
 

@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "LinkedList.h"
+#include "Controller.h"
 #include "Employee.h"
 #include "parser.h"
 
@@ -17,6 +18,7 @@ int controller_loadFromText(char* path, LinkedList* pArrayListEmployee)
     retorno = parser_EmployeeFromText(pFile, pArrayListEmployee);
     fclose(pFile);
 
+    set_ultimaId("ultimaID.csv", pArrayListEmployee);
     return retorno;
 }
 
@@ -114,3 +116,69 @@ int controller_saveAsBinary(char* path, LinkedList* pArrayListEmployee)
 return 1;
 }
 
+
+int set_ultimaId(char* path, LinkedList* pArrayListEmployee)
+{
+    int retorno=-1;
+    FILE* pFile = NULL;
+    int ultimaId=-1;
+    int len=ll_len(pArrayListEmployee);
+    int idRead;
+    int i;
+    Employee* employeeRead;
+
+    get_ultimaId(path, &ultimaId);
+    printf("ultima id %d\n", ultimaId);
+    for(i=0; i<len; i++)
+    {
+        employeeRead = (Employee*) ll_get(pArrayListEmployee, i);
+        employee_getId(employeeRead, &idRead);
+        if(idRead>ultimaId)
+        {
+                ultimaId=idRead;
+        }
+    }
+
+    printf("ultima id %d\n", ultimaId);
+    pFile = fopen(path, "w");
+    if(pFile != NULL)
+    {
+        fprintf(pFile, "%d\n", ultimaId);
+        retorno=1;
+    }
+    fclose(pFile);
+    return retorno;
+}
+
+int get_ultimaId(char* path, int* ultimaId)
+{
+    FILE* pFile=NULL;
+    int retorno=-1;
+    char ultimaIdStr[500];
+
+    pFile = fopen(path, "r");
+    if(pFile != NULL)
+    {
+        retorno=1;
+        fscanf(pFile, "%[^\n]\n", ultimaIdStr);
+    }
+    fclose(pFile);
+
+    *ultimaId = atoi(ultimaIdStr);
+
+    return retorno;
+}
+
+int set_ultimaIdTo(char* path, int id)
+{
+    int retorno=-1;
+    FILE* pFile = NULL;
+    pFile=fopen(path, "w");
+    if(pFile != NULL)
+    {
+        retorno=1;
+        fprintf(pFile, "%d", id);
+    }
+    fclose(pFile);
+    return retorno;
+}

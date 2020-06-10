@@ -24,7 +24,7 @@ int main()
 {
     int opcion;
     LinkedList* listaEmpleados = ll_newLinkedList();
-
+    //set_ultimaIdTo("ultimaID.csv", 0); //ejecutar el programa 1 vez con esta linea sin comentar si se quiere resetear la ultima id a 0.
 
     do{
         opcion = getIntMmR(3, "1-CARGAR DATOS DESDE EL CSV (TEXTO)\n2-CARGAR DATOS DESDE EL CSV (BINARIO)\n3-ALTA EMPLEADO\n4-MODIFICAR EMPLEADO\n5-BAJA EMPLEADO\n6-LISTAR EMPLEADOS\n7-ORDENAR EMPLEADOS\n8-GUARDAR EN CSV (TEXTO)\n9-GUARDAR EN CSV (BINARIO)\n10-SALIR\nINGRESE OPCION:",
@@ -76,6 +76,7 @@ int main()
                 if(!ll_isEmpty(listaEmpleados))
                 {
                     controller_saveAsText("data.csv", listaEmpleados);
+                    printf("SE A GUARDADO CON EXITO...\n");
                 }
                 else
                 {

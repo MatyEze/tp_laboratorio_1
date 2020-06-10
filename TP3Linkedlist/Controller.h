@@ -16,4 +16,6 @@ int controller_saveAsText(char* path , LinkedList* pArrayListEmployee);//listo
 
 int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee);
 
-
+int set_ultimaId(char* path, LinkedList* pArrayListEmployee); //listo
+int get_ultimaId(char* path, int* ultimaId); //listo
+int set_ultimaIdTo(char* path, int id); //listo
