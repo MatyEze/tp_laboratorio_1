@@ -50,25 +50,31 @@ return 1;
 
 int controller_ListEmployee(LinkedList* pArrayListEmployee)
 {
-    int len = ll_len(pArrayListEmployee);
-    int i;
-    int hsTrabjadas;
-    int sueldo;
-    char nombre[EMPLOYEENAME_SIZE];
-    int id;
-    Employee* aux;
-    for(i=0; i<len; i++)
+    int retorno = -1;
+    if(pArrayListEmployee != NULL)
     {
-        aux = (Employee*) ll_get(pArrayListEmployee, i);
-        employee_getHorasTrabajadas(aux, &hsTrabjadas);
-        employee_getSueldo(aux, &sueldo);
-        employee_getNombre(aux, nombre);
-        employee_getId(aux, &id);
+        retorno = 1;
+        int len = ll_len(pArrayListEmployee);
+        int i;
+        int hsTrabjadas;
+        int sueldo;
+        char nombre[EMPLOYEENAME_SIZE];
+        int id;
+        Employee* aux;
+        for(i=0; i<len; i++)
+        {
+            aux = (Employee*) ll_get(pArrayListEmployee, i);
+            employee_getHorasTrabajadas(aux, &hsTrabjadas);
+            employee_getSueldo(aux, &sueldo);
+            employee_getNombre(aux, nombre);
+            employee_getId(aux, &id);
 
-        printf("%d--%s--%d--%d\n", id, nombre, hsTrabjadas, sueldo);
+            printf("%d--%s--%d--%d\n", id, nombre, hsTrabjadas, sueldo);
+        }
     }
 
-    return 1;
+
+    return retorno;
 }
 
 
@@ -128,7 +134,7 @@ int set_ultimaId(char* path, LinkedList* pArrayListEmployee)
     Employee* employeeRead;
 
     get_ultimaId(path, &ultimaId);
-    printf("ultima id %d\n", ultimaId);
+    //printf("ultima id %d\n", ultimaId);
     for(i=0; i<len; i++)
     {
         employeeRead = (Employee*) ll_get(pArrayListEmployee, i);
@@ -139,7 +145,7 @@ int set_ultimaId(char* path, LinkedList* pArrayListEmployee)
         }
     }
 
-    printf("ultima id %d\n", ultimaId);
+    //printf("ultima id %d\n", ultimaId);
     pFile = fopen(path, "w");
     if(pFile != NULL)
     {

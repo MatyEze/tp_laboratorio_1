@@ -9,8 +9,24 @@ typedef struct
     int sueldo;
 }Employee;
 
+/** \brief crea un dato Employee en memoria y devuelve su puntero
+ *
+ * \return Employee*
+ *
+ */
 Employee* employee_new();
+
+/** \brief crea un dato Employee en memoria con parapetros en forma de string y devuelve su puntero
+ *
+ * \param idStr char*
+ * \param nombreStr char*
+ * \param horasTrabajadasStr char*
+ * \param sueldoStr char*
+ * \return Employee*
+ *
+ */
 Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajadasStr,char* sueldoStr);
+
 void employee_delete();
 
 int employee_setId(Employee* this,int id);
