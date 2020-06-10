@@ -14,7 +14,7 @@
      5. Baja de empleado
      6. Listar empleados //LISTO
      7. Ordenar empleados
-     8. Guardar los datos de los empleados en el archivo data.csv (modo texto).
+     8. Guardar los datos de los empleados en el archivo data.csv (modo texto). //LISTO
      9. Guardar los datos de los empleados en el archivo data.csv (modo binario).
     10. Salir
 *****************************************************/
@@ -73,7 +73,15 @@ int main()
             case 7:
             break;
             case 8:
-
+                if(!ll_isEmpty(listaEmpleados))
+                {
+                    controller_saveAsText("data.csv", listaEmpleados);
+                }
+                else
+                {
+                    printf("NO HAY DATOS QUE GUARDAR...\n");
+                }
+                pausa();
             break;
             case 9:
             break;

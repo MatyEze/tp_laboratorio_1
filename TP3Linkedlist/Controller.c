@@ -78,8 +78,34 @@ return 1;
 
 int controller_saveAsText(char* path, LinkedList* pArrayListEmployee)
 {
+    int retorno =-1;
+    Employee* auxEmployee;
+    int id, hstrabajadas, sueldo;
+    char nombre[EMPLOYEENAME_SIZE];
+    int len = ll_len(pArrayListEmployee);
+    int i;
+    FILE* pFile=NULL;
+    pFile = fopen(path, "w");
 
-return 1;
+    if(pFile != NULL)
+    {
+        retorno=1;
+        fprintf(pFile, "id,nombre,horasTrabajadas,sueldo\n");
+        for(i=0; i<len; i++)
+        {
+            auxEmployee = (Employee*) ll_get(pArrayListEmployee, i);
+            employee_getId(auxEmployee, &id);
+            employee_getHorasTrabajadas(auxEmployee, &hstrabajadas);
+            employee_getSueldo(auxEmployee, &sueldo);
+            employee_getNombre(auxEmployee, nombre);
+
+            fprintf(pFile, "%d,%s,%d,%d\n", id, nombre, hstrabajadas, sueldo);
+            //printf("se guardo %d,%s,%d,%d\n", id, nombre, hstrabajadas, sueldo);
+        }
+
+    }
+    fclose(pFile);
+    return retorno;
 }
 
 
