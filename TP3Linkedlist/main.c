@@ -9,7 +9,7 @@
     Menu:
      1. Cargar los datos de los empleados desde el archivo data.csv (modo texto). //LISTO
      2. Cargar los datos de los empleados desde el archivo data.csv (modo binario).
-     3. Alta de empleado
+     3. Alta de empleado //LISTO
      4. Modificar datos de empleado
      5. Baja de empleado
      6. Listar empleados //LISTO
@@ -23,6 +23,7 @@
 int main()
 {
     int opcion;
+    int readUId;
     LinkedList* listaEmpleados = ll_newLinkedList();
     //set_ultimaIdTo("ultimaID.csv", 0); //ejecutar el programa 1 vez con esta linea sin comentar si se quiere resetear la ultima id a 0.
 
@@ -53,6 +54,16 @@ int main()
             case 2:
             break;
             case 3:
+                get_ultimaId("ultimaID.csv", &readUId);
+                if(ll_isEmpty(listaEmpleados) && readUId != 0)
+                {
+                    printf("NO SE A CARGADO NINGUNA LISTA, INGRESE A LAS OPCIONES 1 O 2 PARA CARGAR UNA...\n");
+                }
+                else
+                {
+                    controller_addEmployee(listaEmpleados);
+                }
+                pausa();
             break;
             case 4:
             break;

@@ -5,6 +5,7 @@
 #include "Controller.h"
 #include "Employee.h"
 #include "parser.h"
+#include "funcionesgnr.h"
 
 
 
@@ -31,8 +32,35 @@ return 1;
 
 int controller_addEmployee(LinkedList* pArrayListEmployee)
 {
+    int retorno=0;
+    Employee* newEmployee = employee_new();
+    if(pArrayListEmployee != NULL && newEmployee != NULL)
+    {
+        retorno=1;
+        int id, sueldo, hstrabajadas;
+        char nombre[EMPLOYEENAME_SIZE];
 
-return 1;
+        get_ultimaId("ultimaID.csv", &id);
+        //printf("ultima id %d\n", id); //control
+        id++;
+        set_ultimaIdTo("ultimaID.csv", id);
+        //printf("ultima id %d\n", id); //control
+        getNombre(1, "Ingrese nombre: ", nombre, EMPLOYEENAME_SIZE);
+        sueldo=getIntMmR(2, "Ingrese el sueldo: ", "ERROR valor no valido reingrese: ", 0, 1);
+        hstrabajadas=getIntMmR(2, "Ingrese las horas trabajadas: ", "ERROR valor no valido reingrese", 0, 1);
+
+
+        employee_setId(newEmployee, id);
+        employee_setSueldo(newEmployee, sueldo);
+        employee_setHorasTrabajadas(newEmployee, hstrabajadas);
+        employee_setNombre(newEmployee, nombre);
+
+        ll_add(pArrayListEmployee, newEmployee);
+        free(newEmployee);
+
+    }
+
+    return retorno;
 }
 
 
@@ -108,7 +136,7 @@ int controller_saveAsText(char* path, LinkedList* pArrayListEmployee)
             employee_getNombre(auxEmployee, nombre);
 
             fprintf(pFile, "%d,%s,%d,%d\n", id, nombre, hstrabajadas, sueldo);
-            //printf("se guardo %d,%s,%d,%d\n", id, nombre, hstrabajadas, sueldo);
+            //printf("se guardo %d,%s,%d,%d\n", id, nombre, hstrabajadas, sueldo); //control
         }
 
     }
@@ -134,7 +162,7 @@ int set_ultimaId(char* path, LinkedList* pArrayListEmployee)
     Employee* employeeRead;
 
     get_ultimaId(path, &ultimaId);
-    //printf("ultima id %d\n", ultimaId);
+    //printf("ultima id %d\n", ultimaId); //control
     for(i=0; i<len; i++)
     {
         employeeRead = (Employee*) ll_get(pArrayListEmployee, i);
@@ -145,7 +173,7 @@ int set_ultimaId(char* path, LinkedList* pArrayListEmployee)
         }
     }
 
-    //printf("ultima id %d\n", ultimaId);
+    //printf("ultima id %d\n", ultimaId); //control
     pFile = fopen(path, "w");
     if(pFile != NULL)
     {
