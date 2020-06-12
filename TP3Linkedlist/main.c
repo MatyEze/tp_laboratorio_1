@@ -8,14 +8,14 @@
 /****************************************************
     Menu:
      1. Cargar los datos de los empleados desde el archivo data.csv (modo texto). //LISTO
-     2. Cargar los datos de los empleados desde el archivo data.csv (modo binario).
+     2. Cargar los datos de los empleados desde el archivo data.csv (modo binario). //LISTO
      3. Alta de empleado //LISTO
      4. Modificar datos de empleado //  LISTO
      5. Baja de empleado //LISTO
      6. Listar empleados //LISTO
      7. Ordenar empleados //LISTO
      8. Guardar los datos de los empleados en el archivo data.csv (modo texto). //LISTO
-     9. Guardar los datos de los empleados en el archivo data.csv (modo binario).
+     9. Guardar los datos de los empleados en el archivo data.csv (modo binario). //LISTO
     10. Salir
 *****************************************************/
 

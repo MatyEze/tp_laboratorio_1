@@ -7,4 +7,12 @@
  *
  */
 int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee);
+
+/** \brief toma datos de un archivo binario, y los carga a la linkedlist selecionada
+ *
+ * \param pFile FILE*
+ * \param pArrayListEmployee LinkedList*
+ * \return int -1 si los parametros pasados son NULL, 1 todo ok
+ *
+ */
 int parser_EmployeeFromBinary(FILE* pFile , LinkedList* pArrayListEmployee);

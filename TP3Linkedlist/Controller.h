@@ -96,8 +96,22 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee); //listo
  */
 int controller_sortEmployee(LinkedList* pArrayListEmployee); //listo
 
+/** \brief guarda en binario en la ubicacion marcada el contenido de la linkedlist selecionada
+ *
+ * \param path char* ubicacion del archivo
+ * \param pArrayListEmployee LinkedList* linkedlist selecionada
+ * \return int
+ *
+ */
 int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee);
 
+/** \brief carga los datos guardados en un archivo binario en la linkedlist selecionada
+ *
+ * \param path char* ubicacion del archivo
+ * \param pArrayListEmployee LinkedList* linkedlist selecionada
+ * \return int
+ *
+ */
 int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee);
 
 
