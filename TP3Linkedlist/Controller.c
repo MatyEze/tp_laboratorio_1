@@ -201,7 +201,28 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
 
 int controller_sortEmployee(LinkedList* pArrayListEmployee)
 {
-return 1;
+    int retorno=-1;
+    if(pArrayListEmployee != NULL)
+    {
+        system("cls");
+        int opcion=getIntMmR(3, "ORDENAR LISTA\n1-Por id\n2-Por nombre\n3-CANCELAR\nINGRESE OPCION: ",
+                             "ERROR opcion no valida REINGRESE: ", 3, 1);
+        switch(opcion)
+        {
+            case 1:
+                printf("ORDENANDO puede tardar unos segundos...\n");
+                ll_sort(pArrayListEmployee, employee_CompareById, 1);
+                printf("SE A ORDENADO LA LISTA\n");
+            break;
+            case 2:
+                printf("ORDENANDO puede tardar unos segundos...\n");
+                ll_sort(pArrayListEmployee, employee_CompareByName, 1);
+                printf("SE A ORDENADO LA LISTA\n");
+            break;
+        }
+        retorno=1;
+    }
+    return retorno;
 }
 
 

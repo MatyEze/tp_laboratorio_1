@@ -36,8 +36,8 @@ Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajad
 int printEmployee(Employee* this);
 
 void employee_delete();
-int employee_CompareByName(Employee* e1, Employee* e2);
-int employee_CompareById(Employee* e1, Employee* e2);
+int employee_CompareByName(void* e1, void* e2);
+int employee_CompareById(void* e1, void* e2);
 ////////////////seters y geters///////////////////////////////////////////
 int employee_setId(Employee* this,int id);
 int employee_getId(Employee* this,int* id);
