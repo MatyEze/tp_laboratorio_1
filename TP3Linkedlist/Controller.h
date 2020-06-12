@@ -54,15 +54,51 @@ int get_ultimaId(char* path, int* ultimaId); //listo
  */
 int set_ultimaIdTo(char* path, int id); //listo
 
+/** \brief Agrega en elemento del tipo employee a la linkedlist selecionada
+ *
+ * \param pArrayListEmployee LinkedList*
+ * \return int
+ *
+ */
 int controller_addEmployee(LinkedList* pArrayListEmployee); //listo
 
+/** \brief Busca el idice en la linkedlist selecionada de un elemento employee mediante su id
+ *
+ * \param pArrayListEmployee LinkedList*
+ * \param id int
+ * \param index int* puntero donde se guardara en indice
+ * \return int -1 si pArrayListEmployee es NULL, 1 si todo OK pero no encontro el elemento, 2 todo OK y encontro el elemento
+ *
+ */
 int getEmployeeById(LinkedList* pArrayListEmployee, int id, int* index); //listo
 
+/** \brief Abre un menu de edicion para modificar un empleado de la linkedlist selecionada
+ *
+ * \param pArrayListEmployee LinkedList*
+ * \return int -1 si pArrayListEmployee es NULL, 1 si todo OK
+ *
+ */
 int controller_editEmployee(LinkedList* pArrayListEmployee); //listo
 
+/** \brief Pide una id de empleado y luego remueve al empleado de la linkedlist
+ *
+ * \param pArrayListEmployee LinkedList*
+ * \return int -1 si pArrayListEmployee es NULL, 1 si todo OK
+ *
+ */
+int controller_removeEmployee(LinkedList* pArrayListEmployee); //listo
+
+/** \brief Abre un menu para ordenar la linkedlist
+ *
+ * \param pArrayListEmployee LinkedList*
+ * \return int -1 si pArrayListEmployee es NULL, 1 si todo OK
+ *
+ */
+int controller_sortEmployee(LinkedList* pArrayListEmployee); //listo
+
 int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee);
-int controller_sortEmployee(LinkedList* pArrayListEmployee);
+
 int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee);
 
 
-int controller_removeEmployee(LinkedList* pArrayListEmployee);
+

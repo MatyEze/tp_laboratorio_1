@@ -42,5 +42,20 @@ void getNombre(int formato, char pedido[], char nombre[], int sizeNombre);
 
 ///////////////////////////////////////////////////////////Z1.0 OTRAS///////////////////////////////////////////////////////////////////////
 char *strlwr(char *str); //para que funcione en GDB hay que implementarla manualmente
+
+/** \brief realiza una pausa en el programa hasta que se presione una tecla
+ *
+ * \param void
+ * \return void
+ *
+ */
 void pausa(void);
+
+/** \brief pide que se ingrese si o no y lo devulve en binario
+ *
+ * \param pedido[] char la pregunta
+ * \param error[] char mensaje en caso de ingresar caracteres incorrectos
+ * \return int 0 no, 1 si
+ *
+ */
 int getSON(char pedido[], char error[]);
