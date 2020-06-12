@@ -56,11 +56,13 @@ int set_ultimaIdTo(char* path, int id); //listo
 
 int controller_addEmployee(LinkedList* pArrayListEmployee); //listo
 
-int getEmployeeById(LinkedList* pArrayListEmployee, int id, int* index);
+int getEmployeeById(LinkedList* pArrayListEmployee, int id, int* index); //listo
+
+int controller_editEmployee(LinkedList* pArrayListEmployee); //listo
 
 int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee);
 int controller_sortEmployee(LinkedList* pArrayListEmployee);
 int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee);
 
-int controller_editEmployee(LinkedList* pArrayListEmployee);
+
 int controller_removeEmployee(LinkedList* pArrayListEmployee);

@@ -149,7 +149,31 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
 
 int controller_removeEmployee(LinkedList* pArrayListEmployee)
 {
-return 1;
+    int retorno=-1;
+    if(pArrayListEmployee != NULL)
+    {
+        int idToIndex=getInt("Ingres id del empleado a eliminar: ");
+        if(getEmployeeById(pArrayListEmployee, idToIndex, &idToIndex) == 2)
+        {
+            printf("Esta seguro que quiere eliminar a:\n");
+            printEmployee((Employee*) ll_get(pArrayListEmployee, idToIndex));
+            if(getSON("Ingrese (s/n)", "VALOR no valido REINGRESE (s/n): "))
+            {
+                ll_remove(pArrayListEmployee, idToIndex);
+                printf("EL EMPLEADO SE A ELIMINADO EXITOSAMENTE...\n");
+            }
+            else
+            {
+                printf("LA OPERACION CANCELADA...\n");
+            }
+        }
+        else
+        {
+            printf("ID NO ENCONTRADA...\n");
+        }
+        retorno=1;
+    }
+    return retorno;
 }
 
 

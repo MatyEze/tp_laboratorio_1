@@ -10,8 +10,8 @@
      1. Cargar los datos de los empleados desde el archivo data.csv (modo texto). //LISTO
      2. Cargar los datos de los empleados desde el archivo data.csv (modo binario).
      3. Alta de empleado //LISTO
-     4. Modificar datos de empleado
-     5. Baja de empleado
+     4. Modificar datos de empleado //  LISTO
+     5. Baja de empleado //LISTO
      6. Listar empleados //LISTO
      7. Ordenar empleados
      8. Guardar los datos de los empleados en el archivo data.csv (modo texto). //LISTO
@@ -77,6 +77,15 @@ int main()
                 pausa();
             break;
             case 5:
+                if(!ll_isEmpty(listaEmpleados))
+                {
+                    controller_removeEmployee(listaEmpleados);
+                }
+                else
+                {
+                    printf("NO HAY DATOS CARGADOS ELIJA LAS OPCIONES 1 O 2 PARA CARGAR...\n");
+                }
+                pausa();
             break;
             case 6:
                 if(!ll_isEmpty(listaEmpleados))
