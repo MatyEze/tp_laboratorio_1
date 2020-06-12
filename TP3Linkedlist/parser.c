@@ -30,6 +30,20 @@ int parser_EmployeeFromText(FILE* pFile, LinkedList* pArrayListEmployee)
 
 int parser_EmployeeFromBinary(FILE* pFile, LinkedList* pArrayListEmployee)
 {
+    int retorno=-1;
+    if(pFile != NULL && pArrayListEmployee != NULL)
+    {
+        Employee* auxEmployee;
+        do{
+            auxEmployee = employee_new();
+            retorno = fread(auxEmployee, sizeof(Employee), 1, pFile);
+            if(retorno != 0)
+            {
+                ll_add(pArrayListEmployee, auxEmployee);
+                //printf("RETORNO = %d se carga un empleado id %d nombre: %s\n",retorno, auxEmployee->id, auxEmployee->nombre); //control
+            }
 
-    return 1;
+        }while(retorno != 0);
+    }
+    return retorno;
 }

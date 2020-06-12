@@ -26,7 +26,20 @@ int controller_loadFromText(char* path, LinkedList* pArrayListEmployee)
 
 int controller_loadFromBinary(char* path, LinkedList* pArrayListEmployee)
 {
-return 1;
+    int retorno=-1;
+    if(pArrayListEmployee != NULL)
+    {
+        ll_clear(pArrayListEmployee);
+        FILE* pFile = fopen(path, "rb");
+        if(pFile != NULL)
+        {
+            retorno=1;
+            parser_EmployeeFromBinary(pFile, pArrayListEmployee);
+        }
+        fclose(pFile);
+        set_ultimaId("ultimaID.csv", pArrayListEmployee);
+    }
+    return retorno;
 }
 
 
@@ -261,7 +274,26 @@ int controller_saveAsText(char* path, LinkedList* pArrayListEmployee)
 
 int controller_saveAsBinary(char* path, LinkedList* pArrayListEmployee)
 {
-return 1;
+    int retorno=-1;
+    if(pArrayListEmployee != NULL)
+    {
+        FILE* pFile=NULL;
+        int i;
+        int len = ll_len(pArrayListEmployee);
+        //printf("tamaño lista a guardar: %d\n", len); //control
+        pFile = fopen(path, "wb");
+        if(pFile != NULL)
+        {
+            retorno=1;
+            for(i=0; i<len; i++)
+            {
+                fwrite((Employee*) ll_get(pArrayListEmployee, i), sizeof(Employee), 1, pFile);
+            }
+        }
+        fclose(pFile);
+    }
+
+    return retorno;
 }
 
 

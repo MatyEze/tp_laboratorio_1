@@ -218,7 +218,7 @@
 
 1591983466 c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\tp3linkedlist\employee.h
 
-1591816994 source:c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\tp3linkedlist\parser.c
+1591991970 source:c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\tp3linkedlist\parser.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"
@@ -226,7 +226,7 @@
 
 1590767427 c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\tp3linkedlist\linkedlist.h
 
-1591982878 source:c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\tp3linkedlist\controller.c
+1591992890 source:c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\tp3linkedlist\controller.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -247,7 +247,7 @@
 1591794937 source:c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\tp3linkedlist\funcionesgnr.c
 	"funcionesgnr.h"
 
-1591981875 source:c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\tp3linkedlist\main.c
+1591993324 source:c:\users\maty\documents\escritorio todo\porgramacion\repositorios\tp_laboratorio_1\tp3linkedlist\main.c
 	<stdio.h>
 	<stdlib.h>
 	"LinkedList.h"

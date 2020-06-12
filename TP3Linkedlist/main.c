@@ -28,9 +28,11 @@ int main()
     //set_ultimaIdTo("ultimaID.csv", 0); //ejecutar el programa 1 vez con esta linea sin comentar si se quiere resetear la ultima id a 0.
 
     do{
-        opcion = getIntMmR(3, "1-CARGAR DATOS DESDE EL CSV (TEXTO)\n2-CARGAR DATOS DESDE EL CSV (BINARIO)\n3-ALTA EMPLEADO\n4-MODIFICAR EMPLEADO\n5-BAJA EMPLEADO\n6-LISTAR EMPLEADOS\n7-ORDENAR EMPLEADOS\n8-GUARDAR EN CSV (TEXTO)\n9-GUARDAR EN CSV (BINARIO)\n10-SALIR\nINGRESE OPCION:",
+        //printf("tamanio de lista : %d\n", ll_len(listaEmpleados)); //control
+        //get_ultimaId("ultimaID.csv", &readUId); //control
+        //printf("Ultima ID: %d\n", readUId); // control
+        opcion = getIntMmR(3, "1-CARGAR DATOS DESDE EL CSV (TEXTO)\n2-CARGAR DATOS DESDE EL BIN (BINARIO)\n3-ALTA EMPLEADO\n4-MODIFICAR EMPLEADO\n5-BAJA EMPLEADO\n6-LISTAR EMPLEADOS\n7-ORDENAR EMPLEADOS\n8-GUARDAR EN CSV (TEXTO)\n9-GUARDAR EN BIN (BINARIO)\n10-SALIR\nINGRESE OPCION:",
                   "OPCION INVALIDA REINGRESE: ", 10, 1);
-
 
         switch(opcion)
         {
@@ -52,6 +54,21 @@ int main()
                 pausa();
             break;
             case 2:
+                if(ll_isEmpty(listaEmpleados))
+                {
+                    controller_loadFromBinary("data.bin", listaEmpleados);
+                    printf("CARGADO CON EXITO...\n");
+                }
+                else if(getSON("Se perderan los datos no guardados esta seguro que quiere cargar (s/n): ", "ERROR dato no valido reingrese (s/n): "))
+                {
+                    controller_loadFromBinary("data.bin", listaEmpleados);
+                    printf("CARGADO CON EXITO...\n");
+                }
+                else
+                {
+                    printf("CARGADO CANCELADO...\n");
+                }
+                pausa();
             break;
             case 3:
                 get_ultimaId("ultimaID.csv", &readUId);
@@ -123,6 +140,16 @@ int main()
                 pausa();
             break;
             case 9:
+                if(!ll_isEmpty(listaEmpleados))
+                {
+                    controller_saveAsBinary("data.bin", listaEmpleados);
+                    printf("SE A GUARDADO CON EXITO...\n");
+                }
+                else
+                {
+                    printf("NO HAY DATOS QUE GUARDAR...\n");
+                }
+                pausa();
             break;
         }
         system("cls");
