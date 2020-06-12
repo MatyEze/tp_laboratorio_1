@@ -66,6 +66,7 @@ int main()
                 pausa();
             break;
             case 4:
+
             break;
             case 5:
             break;
@@ -101,5 +102,6 @@ int main()
         system("cls");
     }while(opcion!=10);
 
+    ll_deleteLinkedList(listaEmpleados);
     return 0;
 }

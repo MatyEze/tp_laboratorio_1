@@ -27,8 +27,18 @@ Employee* employee_new();
  */
 Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajadasStr,char* sueldoStr);
 
-void employee_delete();
+/** \brief muestra con printf el empleado selecionado
+ *
+ * \param this Employee*
+ * \return int -1 si this es NULL, 1 todo OK
+ *
+ */
+int printEmployee(Employee* this);
 
+void employee_delete();
+int employee_CompareByName(Employee* e1, Employee* e2);
+int employee_CompareById(Employee* e1, Employee* e2);
+////////////////seters y geters///////////////////////////////////////////
 int employee_setId(Employee* this,int id);
 int employee_getId(Employee* this,int* id);
 
@@ -40,9 +50,8 @@ int employee_getHorasTrabajadas(Employee* this,int* horasTrabajadas);
 
 int employee_setSueldo(Employee* this,int sueldo);
 int employee_getSueldo(Employee* this,int* sueldo);
+//////////////////////////////////////////////////////////////////////////
 
-int employee_CompareByName(Employee* e1, Employee* e2);
-int employee_CompareById(Employee* e1, Employee* e2);
 
 
 #endif // employee_H_INCLUDED

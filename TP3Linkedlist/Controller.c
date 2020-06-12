@@ -66,7 +66,24 @@ int controller_addEmployee(LinkedList* pArrayListEmployee)
 
 int controller_editEmployee(LinkedList* pArrayListEmployee)
 {
-return 1;
+    int retorno;
+    if(pArrayListEmployee != NULL)
+    {
+        retorno=1;
+        int idToIndex = getInt("Ingrese id del empleado que desea modificar: ");
+        int opcion;
+        if(getEmployeeById(pArrayListEmployee, idToIndex, &idToIndex) == 2)
+        {
+            do{
+                printf("Modificando a:\n");
+            }while(opcion != 6);
+        }
+        else
+        {
+            printf("ID NO ENCONTRADA...\n");
+        }
+    }
+    return retorno;
 }
 
 
@@ -84,20 +101,12 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
         retorno = 1;
         int len = ll_len(pArrayListEmployee);
         int i;
-        int hsTrabjadas;
-        int sueldo;
-        char nombre[EMPLOYEENAME_SIZE];
-        int id;
         Employee* aux;
+        printf("%6s %20s %15s %10s\n", "ID", "NOMBRE", "HS TRABAJADAS", "SUELDO");
         for(i=0; i<len; i++)
         {
             aux = (Employee*) ll_get(pArrayListEmployee, i);
-            employee_getHorasTrabajadas(aux, &hsTrabjadas);
-            employee_getSueldo(aux, &sueldo);
-            employee_getNombre(aux, nombre);
-            employee_getId(aux, &id);
-
-            printf("%d--%s--%d--%d\n", id, nombre, hsTrabjadas, sueldo);
+            printEmployee(aux);
         }
     }
 
@@ -214,5 +223,31 @@ int set_ultimaIdTo(char* path, int id)
         fprintf(pFile, "%d", id);
     }
     fclose(pFile);
+    return retorno;
+}
+
+int getEmployeeById(LinkedList* pArrayListEmployee, int id, int* index)
+{
+    int retorno=-1;
+    if(pArrayListEmployee != NULL && index != NULL && id > 0)
+    {
+        int i;
+        int len = ll_len(pArrayListEmployee);
+        int idRead;
+        Employee* auxEmpl;
+        retorno=1;
+
+        for(i=0; i<len; i++)
+        {
+            auxEmpl = (Employee*) ll_get(pArrayListEmployee, i);
+            employee_getId(auxEmpl, &idRead);
+            if(idRead == id)
+            {   retorno=2;
+                *index=i;
+                break;
+            }
+        }
+
+    }
     return retorno;
 }

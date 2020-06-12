@@ -140,3 +140,21 @@ int employee_CompareById(Employee* e1, Employee* e2)
 
     return strcmp(e1->nombre, e2->nombre);
 }
+
+int printEmployee(Employee* this)
+{
+    int retorno=-1;
+    if(this != NULL)
+    {
+        int id, sueldo, hsTrabjadas;
+        char nombre[EMPLOYEENAME_SIZE];
+        retorno=1;
+        employee_getHorasTrabajadas(this, &hsTrabjadas);
+        employee_getSueldo(this, &sueldo);
+        employee_getNombre(this, nombre);
+        employee_getId(this, &id);
+
+        printf("%6d %20s %15d %10d\n", id, nombre, hsTrabjadas, sueldo);
+    }
+    return retorno;
+}
