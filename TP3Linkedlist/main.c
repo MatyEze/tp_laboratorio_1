@@ -66,7 +66,15 @@ int main()
                 pausa();
             break;
             case 4:
-
+                if(!ll_isEmpty(listaEmpleados))
+                {
+                    controller_editEmployee(listaEmpleados);
+                }
+                else
+                {
+                    printf("NO HAY DATOS CARGADOS ELIJA LAS OPCIONES 1 O 2 PARA CARGAR...\n");
+                }
+                pausa();
             break;
             case 5:
             break;

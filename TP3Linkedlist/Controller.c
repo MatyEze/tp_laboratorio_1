@@ -72,11 +72,71 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
         retorno=1;
         int idToIndex = getInt("Ingrese id del empleado que desea modificar: ");
         int opcion;
+        int guardado=1;
+        char auxNombre[EMPLOYEENAME_SIZE];
+        Employee* auxEmployee;
         if(getEmployeeById(pArrayListEmployee, idToIndex, &idToIndex) == 2)
         {
+            auxEmployee = employee_new();
+            *auxEmployee = *((Employee*) ll_get(pArrayListEmployee, idToIndex));
             do{
+                system("cls");
                 printf("Modificando a:\n");
-            }while(opcion != 6);
+                printf("%6s %20s %15s %10s\n", "ID", "NOMBRE", "HS TRABAJADAS", "SUELDO");
+                printEmployee(auxEmployee);
+                opcion=getIntMmR(3, "1-modificar NOMBRE\n2-modificar HS TRABAJADAS\n3-modificar SUELDO\n4-GUARDAR\n5-SALIR\nINGRESE OPCION: ",
+                                 "ERROR opcion invalida REINGRESE: ", 5, 1);
+                switch(opcion)
+                {
+                    case 1:
+                        getNombre(1, "Ingrese nuevo nombre: ", auxNombre, EMPLOYEENAME_SIZE);
+                        employee_setNombre(auxEmployee, auxNombre);
+                        guardado=0;
+                    break;
+                    case 2:
+                        employee_setHorasTrabajadas(auxEmployee, getIntMmR(2, "Ingrese las horas trabajadas: ", "ERROR valor no valido reingrese", 0, 1));
+                        guardado=0;
+                    break;
+                    case 3:
+                        employee_setSueldo(auxEmployee, getIntMmR(2, "Ingrese nuevo sueldo: ", "ERROR valor no valido reingrese: ", 0, 1));
+                        guardado=0;
+                    break;
+                    case 4:
+                        system("cls");
+                        printf("ORIGINAL\n");
+                        printEmployee((Employee*) ll_get(pArrayListEmployee, idToIndex));
+                        printf("NUEVO\n");
+                        printEmployee(auxEmployee);
+                        if(getSON("Esta SEGURO que quiere GUARDAR los cambios ingrese s/n: ", "ERROR valor no valido reingrese: "))
+                        {
+                            *((Employee*) ll_get(pArrayListEmployee, idToIndex)) = *auxEmployee;
+                            guardado=1;
+                            printf("Se a GUARDADO los cambios con EXITO.\n");
+                            pausa();
+                        }
+                        else
+                        {
+                            printf("Cambios CANCELADOS.\n");
+                            pausa();
+                        }
+                    break;
+                    case 5:
+                        if(!guardado)
+                        {
+                            if(getSON("Esta seguro que quiere salir sin guardar (s/n): ", "ERROR valor invalido REINGRESE: "))
+                            {
+                                free(auxEmployee);
+                                opcion = 5;
+                            }
+                            else
+                            {
+                                opcion =-1;
+                            }
+                        }
+                    break;
+                }
+
+            }while(opcion != 5);
         }
         else
         {
