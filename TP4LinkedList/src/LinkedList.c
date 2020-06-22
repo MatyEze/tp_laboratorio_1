@@ -128,6 +128,7 @@ static int addNode(LinkedList* this, int nodeIndex,void* pElement)
         }
         else
         {
+            printf("push\n");
             prev=getNode(this, nodeIndex-1);
             next=getNode(this, nodeIndex);
             nuevoNodo->pNextNode=next;
@@ -328,6 +329,20 @@ int ll_indexOf(LinkedList* this, void* pElement)
     int returnAux = -1;
     int i;
     Node* nodo;
+    int len;
+    if(this != NULL)
+    {
+        len = ll_len(this);
+        for(i=0; i<len; i++)
+        {
+            nodo = getNode(this, i);
+            if(nodo->pElement == pElement)
+            {
+                returnAux=i;
+                break;
+            }
+        }
+    }
 
 
 
@@ -373,7 +388,10 @@ int ll_push(LinkedList* this, int index, void* pElement)
 {
     int returnAux = -1;
 
-
+    if(this != NULL && index >= 0 && index < ll_len(this))
+    {
+        returnAux = addNode(this, index, pElement);
+    }
 
     return returnAux;
 }
