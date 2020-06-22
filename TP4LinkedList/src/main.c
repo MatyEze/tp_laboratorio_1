@@ -40,9 +40,9 @@ int main(void)
         startTesting(12); // ll_isEmpty (100%)
         startTesting(13); // ll_push (100%)
         startTesting(14); // ll_pop (100%)
-        //startTesting(15); // ll_contains
-        //startTesting(16); // ll_containsAll
-        //startTesting(17); // ll_subList
+        startTesting(15); // ll_contains (100%)
+        startTesting(16); // ll_containsAll (100%)
+        startTesting(17); // ll_subList (100%)
         //startTesting(18); // ll_clone
         //startTesting(19); // ll_sort
 
