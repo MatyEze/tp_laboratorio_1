@@ -278,7 +278,7 @@ int ll_remove(LinkedList* this,int index)
 int ll_clear(LinkedList* this)
 {
     int returnAux = -1;
-    Node* nodo;
+    //Node* nodo;
     int i;
     int len;
     if(this != NULL)
@@ -546,25 +546,24 @@ int ll_sort(LinkedList* this, int (*pFunc)(void*,void*), int order)
     int len;
     int i;
     int j;
-    int valor;
     void* pAux;
-    printf("ll_sort\n");
+    //printf("ll_sort\n");
     if(this != NULL && pFunc != NULL && order <= 1 && order >= 0)
     {
-        printf("ll_sort entra al if\n");
+        //printf("ll_sort entra al if\n");
         len = ll_len(this);
         if(order ==0)
         {
-            printf("ll_sort entra al tipo de ordenamiento\n");
+            //printf("ll_sort entra al primer tipo de ordenamiento\n");
             for(i=0; i-1<len; i++)
             {
-                printf("iteracion i :%d\n", i);
-                for(j=i+1; j=len; j++)
+                //printf(" iteracion i :%d\n", i);
+                for(j=i+1; j<len; j++)
                 {
-                    printf("iteracion j :%d\n", j);
-                    valor = pFunc(ll_get(this, i), ll_get(this, j));
-                    if(valor < 0)
+                    //printf("\titeracion j :%d\n", j);
+                    if(pFunc(ll_get(this, i), ll_get(this, j)) < 0)
                     {
+                        //printf("\tswap\n");
                         pAux = ll_get(this, i);
                         ll_set(this, i, ll_get(this, j));
                         ll_set(this, j, pAux);
@@ -574,7 +573,22 @@ int ll_sort(LinkedList* this, int (*pFunc)(void*,void*), int order)
         }
         else
         {
-            printf("ll_sort entra al segundo tipo de ordenamiento\n");
+            //printf("ll_sort entra al segundo tipo de ordenamiento\n");
+            for(i=0; i-1<len; i++)
+            {
+                //printf(" iteracion i :%d\n", i);
+                for(j=i+1; j<len; j++)
+                {
+                    //printf("\titeracion j :%d\n", j);
+                    if(pFunc(ll_get(this, i), ll_get(this, j)) > 0)
+                    {
+                        //printf("\tswap\n");
+                        pAux = ll_get(this, i);
+                        ll_set(this, i, ll_get(this, j));
+                        ll_set(this, j, pAux);
+                    }
+                }
+            }
         }
         returnAux=0;
     }
