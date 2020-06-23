@@ -523,6 +523,10 @@ LinkedList* ll_subList(LinkedList* this,int from,int to)
 LinkedList* ll_clone(LinkedList* this)
 {
     LinkedList* cloneArray = NULL;
+    if(this != NULL)
+    {
+        cloneArray = ll_subList(this, 0, ll_len(this));
+    }
 
 
     return cloneArray;
@@ -539,8 +543,41 @@ LinkedList* ll_clone(LinkedList* this)
 int ll_sort(LinkedList* this, int (*pFunc)(void*,void*), int order)
 {
     int returnAux =-1;
+    int len;
+    int i;
+    int j;
+    int valor;
     void* pAux;
-
+    printf("ll_sort\n");
+    if(this != NULL && pFunc != NULL && order <= 1 && order >= 0)
+    {
+        printf("ll_sort entra al if\n");
+        len = ll_len(this);
+        if(order ==0)
+        {
+            printf("ll_sort entra al tipo de ordenamiento\n");
+            for(i=0; i-1<len; i++)
+            {
+                printf("iteracion i :%d\n", i);
+                for(j=i+1; j=len; j++)
+                {
+                    printf("iteracion j :%d\n", j);
+                    valor = pFunc(ll_get(this, i), ll_get(this, j));
+                    if(valor < 0)
+                    {
+                        pAux = ll_get(this, i);
+                        ll_set(this, i, ll_get(this, j));
+                        ll_set(this, j, pAux);
+                    }
+                }
+            }
+        }
+        else
+        {
+            printf("ll_sort entra al segundo tipo de ordenamiento\n");
+        }
+        returnAux=0;
+    }
 
 
     return returnAux;
